@@ -4,6 +4,8 @@
 --  更新履歴：00.00.001：2024/08/17：新規作成
 --          ：00.00.002：2024/08/18：species_classes、portrait_setsを種族ごとに分割
 --          ：00.00.003：20yy/mm/dd：
+--
+--  タブは８文字
 ------------------------------------------------------------------------
 ・はじめに
 　これは自分がStellarisのポートレイトMOD作成するにあたり、
@@ -16,20 +18,15 @@
 
 
 ・できること
-
 　・静止画ポートレイトMODの作成
 
-
 ・できないこと
-
 　・上記以外
 　　アニメーションポートレイトMODの作成
 　　名称リストとの連動
 　　その他、起源やイベントの追加など
 
-
 ・必要なもの
-
 　・テキストエディタ
 　　notepad（メモ帳）ではダメ！
 　　文字コード指定の出来るテキストエディタが必要
@@ -45,7 +42,6 @@
 
 
 ・その他
-
 　・作者の環境では雛型のままでポートレイトを追加してプレイできることは確認済みなので、
 　　追加できないぞと言われても困る
 
@@ -53,26 +49,23 @@
 
 　・テスト画像は、もっとマシな画像に差し替えるかもしれない
 
-
 ・謝辞
-
 　MOD作成ガイドのコメント欄で反応下さった方々、おかげで公開する踏ん切りがつきました。
 　特に参考情報としてご自身が管理されているGitHubを教えて下さったのFatalErrorJP様、
 　大変参考になりました。また、コードの添削ありがとうございました。
 　ローカライズ定義のコメントを使わせて頂いてます。
-
 
 ------------------------------------------------------------------------
 --  フォルダ構成
 ------------------------------------------------------------------------
 species_portrait_template
 │  readme.txt							：このファイル
-│  template.psd							：ポートレイト画像のテンプレ（位置確認用）
+│  template.psd						：ポートレイト画像のテンプレ（位置確認用）
 │
 └─MOD
     │  mod_portrait_hinagata.mod				：PC用MOD定義
     │
-    └─portrait_hinagata						：ポートレイトMOD本体
+    └─portrait_hinagata					：ポートレイトMOD本体
         │  descriptor.mod					：ランチャー用MOD定義
         │
         ├─common
@@ -80,9 +73,9 @@ species_portrait_template
         │  │      00_hinagata_portrait_categories.txt
         │  │
         │  ├─portrait_sets					：種族ポートレイト定義
-        │  │      00_hinagata_portrait_sets.txt			：　有機生命体用定義
+        │  │      00_hinagata_portrait_sets.txt		：　有機生命体用定義
         │  │      01_hinagata_robotics_portrait_sets.txt	：　機械知性用定義
-        │  │      02_hinagata_lithoid_portrait_sets.txt		：　岩石種族用定義
+        │  │      02_hinagata_lithoid_portrait_sets.txt	：　岩石種族用定義
         │  │
         │  └─species_classes					：種族定義
         │          00_hinagata_species_classes.txt		：　有機生命体用定義
@@ -133,10 +126,9 @@ species_portrait_template
         │              01_hinagata_robotics_portraits.txt	：　機械知性用定義
         │              02_hinagata_lithoid_portraits.txt	：　岩石種族用定義
         │
-        └─localisation						：ローカライズ定義（言語ごと）
-            └─japanese						：日本語用定義（他には英/葡/仏/独/波/露/西/韓/中がある）
+        └─localisation					：ローカライズ定義（言語ごと）
+            └─japanese					：日本語用定義（他には英/葡/仏/独/波/露/西/韓/中がある）
                     hinagata_l_japanese.yml
-
 
 ------------------------------------------------------------------------
 --  説明
@@ -334,5 +326,3 @@ C:\Users\(ユーザー名)\Documents\Paradox Interactive\Stellaris\mod\
 
 　・ここまできたら正常にゲームがプレイできるはずです。
 　　おつかれさまでした！
-
-
