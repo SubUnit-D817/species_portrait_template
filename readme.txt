@@ -1,9 +1,10 @@
 ------------------------------------------------------------------------
 --  StellarisポートレイトMOD作成用テンプレート
 --  作った人：SubUnit-D817
---  更新履歴：00.00.001：2024/08/17：新規作成
---          ：00.00.002：2024/08/18：species_classes、portrait_setsを種族ごとに分割
---          ：00.00.003：20yy/mm/dd：
+--  更新履歴：00.00.001：2024/08/16：新規作成
+--          ：00.00.002：2024/08/17：GitHubに登録。体裁を整える。
+--          ：00.00.003：2024/08/20：portrait_categoriesを種族ごとに分割。テスト画像差し替え。
+--          ：00.00.004：20yy/mm/dd：
 --
 --  タブは８文字
 ------------------------------------------------------------------------
@@ -47,8 +48,6 @@
 
 　・画像は自分で用意
 
-　・テスト画像は、もっとマシな画像に差し替えるかもしれない
-
 ・謝辞
 　MOD作成ガイドのコメント欄で反応下さった方々、おかげで公開する踏ん切りがつきました。
 　特に参考情報としてご自身が管理されているGitHubを教えて下さったのFatalErrorJP様、
@@ -59,75 +58,77 @@
 --  フォルダ構成
 ------------------------------------------------------------------------
 species_portrait_template
-│  readme.txt							：このファイル
-│  template.psd						：ポートレイト画像のテンプレ（位置確認用）
+│  readme.txt								：このファイル
+│  template.psd							：ポートレイト画像のテンプレ（位置確認用）
 │
 └─MOD
-    │  mod_portrait_hinagata.mod				：PC用MOD定義
+    │  mod_portrait_hinagata.mod					：PC用MOD定義
     │
-    └─portrait_hinagata					：ポートレイトMOD本体
-        │  descriptor.mod					：ランチャー用MOD定義
+    └─portrait_hinagata						：ポートレイトMOD本体
+        │  descriptor.mod						：ランチャー用MOD定義
         │
         ├─common
-        │  ├─portrait_categories				：種族選択画面表示用定義
-        │  │      00_hinagata_portrait_categories.txt
+        │  ├─portrait_categories					：種族選択画面表示用定義
+        │  │      00_hinagata_portrait_categories.txt			：　有機生命体用定義
+        │  │      01_hinagata_robotics_portrait_categories.txt	：　機械知性用定義
+        │  │      02_hinagata_lithoid_portrait_categories.txt		：　岩石種族用定義
         │  │
-        │  ├─portrait_sets					：種族ポートレイト定義
-        │  │      00_hinagata_portrait_sets.txt		：　有機生命体用定義
-        │  │      01_hinagata_robotics_portrait_sets.txt	：　機械知性用定義
-        │  │      02_hinagata_lithoid_portrait_sets.txt	：　岩石種族用定義
+        │  ├─portrait_sets						：種族ポートレイト定義
+        │  │      00_hinagata_portrait_sets.txt			：　有機生命体用定義
+        │  │      01_hinagata_robotics_portrait_sets.txt		：　機械知性用定義
+        │  │      02_hinagata_lithoid_portrait_sets.txt		：　岩石種族用定義
         │  │
-        │  └─species_classes					：種族定義
-        │          00_hinagata_species_classes.txt		：　有機生命体用定義
-        │          01_hinagata_robotics_species_classes.txt	：　機械知性用定義
-        │          02_hinagata_lithoid_species_classes.txt	：　岩石種族用定義
+        │  └─species_classes						：種族定義
+        │          00_hinagata_species_classes.txt			：　有機生命体用定義
+        │          01_hinagata_robotics_species_classes.txt		：　機械知性用定義
+        │          02_hinagata_lithoid_species_classes.txt		：　岩石種族用定義
         │
         ├─gfx
-        │  ├─models						：ポートレイト画像格納フォルダ
-        │  │  ├─hinagata					：有機生命体用ポートレイト画像
-        │  │  │      char098.dds				：　テスト画像[役人/男性/Ａ]	※役職でわける必要は無い
-        │  │  │      char099.dds				：　テスト画像[役人/女性/Ｂ]
-        │  │  │      char198.dds				：　テスト画像[科学者/男性/Ｃ]
-        │  │  │      char199.dds				：　テスト画像[科学者/女性/Ｄ]
-        │  │  │      char298.dds				：　テスト画像[司令官/男性/Ｅ]
-        │  │  │      char299.dds				：　テスト画像[司令官/女性/Ｆ]
-        │  │  │      char398.dds				：　テスト画像[使節/男性/Ｇ]
-        │  │  │      char399.dds				：　テスト画像[使節/女性/Ｈ]
-        │  │  │      char998.dds				：　テスト画像[汎用/男性/Ｌ]
-        │  │  │      char999.dds				：　テスト画像[汎用/女性/Ｍ]
+        │  ├─models							：ポートレイト画像格納フォルダ
+        │  │  ├─hinagata						：有機生命体用ポートレイト画像
+        │  │  │      char098.dds					：　テスト画像[役人/男性]	※役職でわける必要は無い
+        │  │  │      char099.dds					：　テスト画像[役人/女性]
+        │  │  │      char198.dds					：　テスト画像[科学者/男性]
+        │  │  │      char199.dds					：　テスト画像[科学者/女性]
+        │  │  │      char298.dds					：　テスト画像[司令官/男性]
+        │  │  │      char299.dds					：　テスト画像[司令官/女性]
+        │  │  │      char398.dds					：　テスト画像[使節/男性]
+        │  │  │      char399.dds					：　テスト画像[使節/女性]
+        │  │  │      char998.dds					：　テスト画像[汎用/男性]
+        │  │  │      char999.dds					：　テスト画像[汎用/女性]
         │  │  │
-        │  │  ├─hinagata_lithoid				：岩石種族用ポートレイト画像
-        │  │  │      lithoid098.dds				：　テスト画像[役人/男性/Ａ青丸]	※役職でわける必要は無い
-        │  │  │      lithoid099.dds				：　テスト画像[役人/女性/Ｂ青丸]
-        │  │  │      lithoid198.dds				：　テスト画像[科学者/男性/Ｃ青丸]
-        │  │  │      lithoid199.dds				：　テスト画像[科学者/女性/Ｄ青丸]
-        │  │  │      lithoid298.dds				：　テスト画像[司令官/男性/Ｅ青丸]
-        │  │  │      lithoid299.dds				：　テスト画像[司令官/女性/Ｆ青丸]
-        │  │  │      lithoid398.dds				：　テスト画像[使節/男性/Ｇ青丸]
-        │  │  │      lithoid399.dds				：　テスト画像[使節/女性/Ｈ青丸]
-        │  │  │      lithoid998.dds				：　テスト画像[汎用/男性/Ｌ青丸]
-        │  │  │      lithoid999.dds				：　テスト画像[汎用/女性/Ｍ青丸]
+        │  │  ├─hinagata_lithoid					：岩石種族用ポートレイト画像
+        │  │  │      lithoid098.dds					：　テスト画像[役人/男性]	※役職でわける必要は無い
+        │  │  │      lithoid099.dds					：　テスト画像[役人/女性]
+        │  │  │      lithoid198.dds					：　テスト画像[科学者/男性]
+        │  │  │      lithoid199.dds					：　テスト画像[科学者/女性]
+        │  │  │      lithoid298.dds					：　テスト画像[司令官/男性]
+        │  │  │      lithoid299.dds					：　テスト画像[司令官/女性]
+        │  │  │      lithoid398.dds					：　テスト画像[使節/男性]
+        │  │  │      lithoid399.dds					：　テスト画像[使節/女性]
+        │  │  │      lithoid998.dds					：　テスト画像[汎用/男性]
+        │  │  │      lithoid999.dds					：　テスト画像[汎用/女性]
         │  │  │
-        │  │  └─hinagata_robotics				：機械知性用ポートレイト画像
-        │  │          robo098.dds				：　テスト画像[役人/男性/Ａ赤Ｒ]	※役職でわける必要は無い
-        │  │          robo099.dds				：　テスト画像[役人/女性/Ｂ赤Ｒ]
-        │  │          robo198.dds				：　テスト画像[科学者/男性/Ｃ赤Ｒ]
-        │  │          robo199.dds				：　テスト画像[科学者/女性/Ｄ赤Ｒ]
-        │  │          robo298.dds				：　テスト画像[司令官/男性/Ｅ赤Ｒ]
-        │  │          robo299.dds				：　テスト画像[司令官/女性/Ｆ赤Ｒ]
-        │  │          robo398.dds				：　テスト画像[使節/男性/Ｇ赤Ｒ]
-        │  │          robo399.dds				：　テスト画像[使節/女性/Ｈ赤Ｒ]
-        │  │          robo998.dds				：　テスト画像[汎用/男性/Ｌ赤Ｒ]
-        │  │          robo999.dds				：　テスト画像[汎用/女性/Ｍ赤Ｒ]
+        │  │  └─hinagata_robotics					：機械知性用ポートレイト画像
+        │  │          robo098.dds					：　テスト画像[役人/男性]	※役職でわける必要は無い
+        │  │          robo099.dds					：　テスト画像[役人/女性]
+        │  │          robo198.dds					：　テスト画像[科学者/男性]
+        │  │          robo199.dds					：　テスト画像[科学者/女性]
+        │  │          robo298.dds					：　テスト画像[司令官/男性]
+        │  │          robo299.dds					：　テスト画像[司令官/女性]
+        │  │          robo398.dds					：　テスト画像[使節/男性]
+        │  │          robo399.dds					：　テスト画像[使節/女性]
+        │  │          robo998.dds					：　テスト画像[汎用/男性]
+        │  │          robo999.dds					：　テスト画像[汎用/女性]
         │  │
         │  └─portraits
-        │      └─portraits					：ポートレイト定義
-        │              00_hinagata_portraits.txt		：　有機生命体用定義
-        │              01_hinagata_robotics_portraits.txt	：　機械知性用定義
-        │              02_hinagata_lithoid_portraits.txt	：　岩石種族用定義
+        │      └─portraits						：ポートレイト定義
+        │              00_hinagata_portraits.txt			：　有機生命体用定義
+        │              01_hinagata_robotics_portraits.txt		：　機械知性用定義
+        │              02_hinagata_lithoid_portraits.txt		：　岩石種族用定義
         │
-        └─localisation					：ローカライズ定義（言語ごと）
-            └─japanese					：日本語用定義（他には英/葡/仏/独/波/露/西/韓/中がある）
+        └─localisation						：ローカライズ定義（言語ごと）
+            └─japanese						：日本語用定義（他には英/葡/仏/独/波/露/西/韓/中がある）
                     hinagata_l_japanese.yml
 
 ------------------------------------------------------------------------
@@ -204,7 +205,7 @@ C:\Users\(ユーザー名)\Documents\Paradox Interactive\Stellaris\mod\
 　・その他の設定はお好みで
 　※利用可能な条件、プレイ条件は必須のＤＬＣがあったりするので変えない事
 
-　・UTF-8 BOM無しで保存する
+　・SJISで保存する
 
 
 ５）種族ポートレイト定義（portrait_sets）の編集
@@ -215,7 +216,7 @@ C:\Users\(ユーザー名)\Documents\Paradox Interactive\Stellaris\mod\
 　・各ファイルの５行目の種族カテゴリー内識別子を変更する（必須）
 　※１と同じ名称を使用して「hinagata」の部分を変更する。
 
-　・UTF-8 BOM無しで保存する
+　・SJISで保存する
 
 
 ６）種族選択画面表示用定義（portrait_categories）の編集
@@ -229,7 +230,7 @@ C:\Users\(ユーザー名)\Documents\Paradox Interactive\Stellaris\mod\
 　・setsで使用したい種族以外の種族カテゴリー内識別子を削除する。
 　※４や５で削除した種族の識別子を削除する。
 
-　・UTF-8 BOM無しで保存する
+　・SJISで保存する
 
 
 ７）ローカライズ定義の編集
@@ -276,7 +277,7 @@ C:\Users\(ユーザー名)\Documents\Paradox Interactive\Stellaris\mod\
 　・各設定で私用したいポートレイトを識別子で記述する
 　　portraitsの中にあるtxtを見てもらえば、たぶんわかると思う・・・
 
-　・UTF-8 BOM無しで保存する
+　・SJISで保存する
 
 
 １０）MODの配置と動作確認
@@ -326,3 +327,4 @@ C:\Users\(ユーザー名)\Documents\Paradox Interactive\Stellaris\mod\
 
 　・ここまできたら正常にゲームがプレイできるはずです。
 　　おつかれさまでした！
+
