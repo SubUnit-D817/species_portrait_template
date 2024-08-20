@@ -35,7 +35,6 @@ DDS(DirectDraw surface)形式とPSD（Photoshopドキュメント）形式が取
  
 == 6.更新履歴
 [cols="1,1,10" grid=all options="autowidth"]
-.対象のMod一覧
 |===
 | 更新日付   | Var.     | 更新内容
 
